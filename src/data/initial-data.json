@@ -1,0 +1,874 @@
+{
+  "system": {
+    "name": "ProcureFlow Enterprise S2P",
+    "version": "1.0.0",
+    "lastUpdated": "2026-11-02T20:55:00Z",
+    "entities": [
+      { "id": "ENT-US", "name": "Global Holdings USA Inc.", "currency": "USD", "country": "USA" },
+      { "id": "ENT-EU", "name": "Global Operations EMEA B.V.", "currency": "EUR", "country": "NLD" },
+      { "id": "ENT-APAC", "name": "Global Logistics APAC Pte Ltd", "currency": "SGD", "country": "SGP" }
+    ],
+    "currentUser": {
+      "id": "USR-101",
+      "name": "Sarah Jenkins",
+      "role": "Procurement Director / System Admin",
+      "entityId": "ENT-US",
+      "permissions": ["all"]
+    }
+  },
+  "suppliers": [
+    {
+      "id": "SUP-101",
+      "code": "GIS-001",
+      "name": "Global Industrial Supply Ltd",
+      "tier": "Tier 1",
+      "category": "MRO & Hardware",
+      "segment": "Strategic",
+      "stage": "Active",
+      "onboardingStatus": "Completed",
+      "paymentTerms": "Net 45",
+      "country": "USA",
+      "taxId": "XX-XXX4912",
+      "bankVerified": true,
+      "riskScore": 18,
+      "riskLevel": "Low",
+      "sanctionsCheck": "Passed",
+      "scorecard": {
+        "onTimeDelivery": 98.4,
+        "qualityRate": 99.2,
+        "slaCompliance": 97.5,
+        "responsiveness": "High"
+      },
+      "contacts": [
+        { "name": "Marcus Vance", "email": "m.vance@globalindustrial.com", "phone": "+1-555-019-2831" }
+      ],
+      "documents": [
+        { "name": "W-9 Form 2026", "type": "Tax", "status": "Verified", "expires": "2027-12-31" },
+        { "name": "ISO 9001 Certificate", "type": "Quality", "status": "Verified", "expires": "2027-05-15" },
+        { "name": "Commercial General Liability Insurance", "type": "Insurance", "status": "Verified", "expires": "2027-08-30" }
+      ]
+    },
+    {
+      "id": "SUP-102",
+      "code": "ACIT-002",
+      "name": "Apex Cloud & IT Solutions Inc",
+      "tier": "Tier 1",
+      "category": "IT Infrastructure & Cloud",
+      "segment": "Preferred",
+      "stage": "Active",
+      "onboardingStatus": "Completed",
+      "paymentTerms": "Net 30",
+      "country": "USA",
+      "taxId": "XX-XXX8821",
+      "bankVerified": true,
+      "riskScore": 22,
+      "riskLevel": "Low",
+      "sanctionsCheck": "Passed",
+      "scorecard": {
+        "onTimeDelivery": 99.5,
+        "qualityRate": 99.8,
+        "slaCompliance": 99.0,
+        "responsiveness": "High"
+      },
+      "contacts": [
+        { "name": "Elena Rostova", "email": "e.rostova@apexcloud.io", "phone": "+1-555-014-9982" }
+      ],
+      "documents": [
+        { "name": "SOC-2 Type II Report", "type": "Compliance", "status": "Verified", "expires": "2027-04-10" },
+        { "name": "Cyber Risk Insurance", "type": "Insurance", "status": "Verified", "expires": "2027-10-15" }
+      ]
+    },
+    {
+      "id": "SUP-103",
+      "code": "NPE-003",
+      "name": "Nova Precision Engineering",
+      "tier": "Tier 2",
+      "category": "Precision Manufacturing",
+      "segment": "Conditional",
+      "stage": "UnderReview",
+      "onboardingStatus": "Audited",
+      "paymentTerms": "Net 60",
+      "country": "Germany",
+      "taxId": "DE-994821034",
+      "bankVerified": false,
+      "riskScore": 54,
+      "riskLevel": "Medium",
+      "sanctionsCheck": "Passed",
+      "scorecard": {
+        "onTimeDelivery": 91.2,
+        "qualityRate": 93.0,
+        "slaCompliance": 90.5,
+        "responsiveness": "Medium"
+      },
+      "contacts": [
+        { "name": "Klaus Schmidt", "email": "klaus@novaprecision.de", "phone": "+49-89-234-871" }
+      ],
+      "documents": [
+        { "name": "Commercial Register Excerpt", "type": "Legal", "status": "Verified", "expires": "2028-01-01" },
+        { "name": "ISO 14001 Environmental Cert", "type": "Environmental", "status": "UnderReview", "expires": "2026-12-01" }
+      ]
+    },
+    {
+      "id": "SUP-104",
+      "code": "QLF-004",
+      "name": "Quantum Logistics & Freight",
+      "tier": "Tier 1",
+      "category": "Logistics & Supply Chain",
+      "segment": "Approved",
+      "stage": "Active",
+      "onboardingStatus": "Completed",
+      "paymentTerms": "Net 30",
+      "country": "USA",
+      "taxId": "XX-XXX3114",
+      "bankVerified": true,
+      "riskScore": 31,
+      "riskLevel": "Low",
+      "sanctionsCheck": "Passed",
+      "scorecard": {
+        "onTimeDelivery": 95.8,
+        "qualityRate": 97.4,
+        "slaCompliance": 96.0,
+        "responsiveness": "Medium"
+      },
+      "contacts": [
+        { "name": "David Cho", "email": "dcho@quantumlogistics.com", "phone": "+1-555-018-4421" }
+      ],
+      "documents": [
+        { "name": "DOT Freight Carrier Certificate", "type": "Regulatory", "status": "Verified", "expires": "2027-11-20" }
+      ]
+    },
+    {
+      "id": "SUP-105",
+      "code": "BHL-005",
+      "name": "BioHealth Laboratories Ltd",
+      "tier": "Tier 2",
+      "category": "Chemical & Lab Consumables",
+      "segment": "Restricted",
+      "stage": "Suspended",
+      "onboardingStatus": "Bank Change Audit",
+      "paymentTerms": "Net 30",
+      "country": "United Kingdom",
+      "taxId": "GB-8829104",
+      "bankVerified": false,
+      "riskScore": 76,
+      "riskLevel": "High",
+      "sanctionsCheck": "ReviewRequired",
+      "scorecard": {
+        "onTimeDelivery": 86.4,
+        "qualityRate": 92.1,
+        "slaCompliance": 84.0,
+        "responsiveness": "Low"
+      },
+      "contacts": [
+        { "name": "Alistair Sterling", "email": "a.sterling@biohealthlab.co.uk", "phone": "+44-20-7946-0912" }
+      ],
+      "documents": [
+        { "name": "Updated Bank Account Evidence", "type": "Banking", "status": "FlaggedForVerification", "expires": "2027-01-01" }
+      ]
+    },
+    {
+      "id": "SUP-106",
+      "code": "ZFS-006",
+      "name": "Zenith Facilities Services",
+      "tier": "Tier 3",
+      "category": "Facilities & Janitorial",
+      "segment": "Pending",
+      "stage": "Registered",
+      "onboardingStatus": "Questionnaire Pending",
+      "paymentTerms": "Net 30",
+      "country": "USA",
+      "taxId": "XX-XXX5512",
+      "bankVerified": false,
+      "riskScore": 42,
+      "riskLevel": "Medium",
+      "sanctionsCheck": "Passed",
+      "scorecard": {
+        "onTimeDelivery": 0,
+        "qualityRate": 0,
+        "slaCompliance": 0,
+        "responsiveness": "N/A"
+      },
+      "contacts": [
+        { "name": "Rachel Diaz", "email": "rdiaz@zenithfacilities.com", "phone": "+1-555-012-7719" }
+      ],
+      "documents": []
+    }
+  ],
+  "catalogs": [
+    {
+      "id": "CAT-001",
+      "name": "Enterprise Developer Workstation (Dell XPS 16 64GB)",
+      "category": "IT Hardware",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "unitPrice": 2450.00,
+      "currency": "USD",
+      "leadTimeDays": 5,
+      "contractId": "CTR-602",
+      "inStock": true,
+      "sku": "HW-DELL-XPS16-PRO"
+    },
+    {
+      "id": "CAT-002",
+      "name": "Cisco Catalyst 9300 48-Port Enterprise Switch",
+      "category": "Network Infrastructure",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "unitPrice": 4890.00,
+      "currency": "USD",
+      "leadTimeDays": 7,
+      "contractId": "CTR-602",
+      "inStock": true,
+      "sku": "NET-CISCO-C9300-48"
+    },
+    {
+      "id": "CAT-003",
+      "name": "Apex Secure Cloud Dedicated Instance (Annual)",
+      "category": "Cloud Computing",
+      "supplierId": "SUP-102",
+      "supplierName": "Apex Cloud & IT Solutions Inc",
+      "unitPrice": 12800.00,
+      "currency": "USD",
+      "leadTimeDays": 1,
+      "contractId": "CTR-601",
+      "inStock": true,
+      "sku": "CLOUD-APEX-DEDICATED"
+    },
+    {
+      "id": "CAT-004",
+      "name": "Industrial Cleanroom Safety Pack (Case of 50)",
+      "category": "Safety & PPE",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "unitPrice": 340.00,
+      "currency": "USD",
+      "leadTimeDays": 3,
+      "contractId": "CTR-602",
+      "inStock": true,
+      "sku": "PPE-CLEANROOM-PRO50"
+    }
+  ],
+  "requisitions": [
+    {
+      "id": "PR-2026-001",
+      "title": "Cloud Infrastructure Cluster Expansion - APAC Region",
+      "requester": "Sarah Jenkins",
+      "department": "Infrastructure & IT",
+      "type": "Capital Expenditure",
+      "channel": "Catalog",
+      "entityId": "ENT-US",
+      "budgetCode": "CAPEX-IT-2026-04",
+      "allocatedBudget": 150000.00,
+      "totalAmount": 128000.00,
+      "currency": "USD",
+      "status": "ConvertedToPO",
+      "convertedPoId": "PO-3002",
+      "createdAt": "2026-10-15T09:30:00Z",
+      "approvalFlow": [
+        { "role": "Department Head", "approver": "David Sterling", "status": "Approved", "date": "2026-10-15T11:00:00Z" },
+        { "role": "Finance Controller", "approver": "Karen Wu", "status": "Approved", "date": "2026-10-15T14:30:00Z" }
+      ],
+      "items": [
+        { "line": 1, "description": "Apex Secure Cloud Dedicated Instances", "sku": "CLOUD-APEX-DEDICATED", "qty": 10, "unitPrice": 12800.00, "total": 128000.00 }
+      ]
+    },
+    {
+      "id": "PR-2026-002",
+      "title": "Specialized Cleanroom HVAC Overhaul & Engineering Audit",
+      "requester": "Robert Miller",
+      "department": "Facilities & Engineering",
+      "type": "Service",
+      "channel": "Non-Catalog",
+      "entityId": "ENT-US",
+      "budgetCode": "OPEX-FAC-2026-02",
+      "allocatedBudget": 80000.00,
+      "totalAmount": 65000.00,
+      "currency": "USD",
+      "status": "ConvertedToPO",
+      "convertedPoId": "PO-3003",
+      "createdAt": "2026-10-18T14:15:00Z",
+      "approvalFlow": [
+        { "role": "Facilities Lead", "approver": "Robert Miller", "status": "Approved", "date": "2026-10-18T14:15:00Z" },
+        { "role": "Procurement Reviewer", "approver": "Sarah Jenkins", "status": "Approved", "date": "2026-10-19T09:20:00Z" }
+      ],
+      "items": [
+        { "line": 1, "description": "HVAC Overhaul Milestone Phase 1 - Inspection & Disassembly", "qty": 1, "unitPrice": 32500.00, "total": 32500.00 },
+        { "line": 2, "description": "HVAC Overhaul Milestone Phase 2 - Re-commissioning & Sensor Calibration", "qty": 1, "unitPrice": 32500.00, "total": 32500.00 }
+      ]
+    },
+    {
+      "id": "PR-2026-003",
+      "title": "Engineering Team High-Performance Laptops Refresh",
+      "requester": "Alex Chen",
+      "department": "Software Engineering",
+      "type": "Goods",
+      "channel": "Catalog",
+      "entityId": "ENT-US",
+      "budgetCode": "CAPEX-ENG-2026-01",
+      "allocatedBudget": 50000.00,
+      "totalAmount": 42500.00,
+      "currency": "USD",
+      "status": "ConvertedToPO",
+      "convertedPoId": "PO-3001",
+      "createdAt": "2026-10-20T10:00:00Z",
+      "approvalFlow": [
+        { "role": "VP Engineering", "approver": "Linda Thorne", "status": "Approved", "date": "2026-10-20T11:45:00Z" },
+        { "role": "IT Procurement", "approver": "Sarah Jenkins", "status": "Approved", "date": "2026-10-20T13:10:00Z" }
+      ],
+      "items": [
+        { "line": 1, "description": "Enterprise Developer Workstation (Dell XPS 16)", "sku": "HW-DELL-XPS16-PRO", "qty": 17, "unitPrice": 2450.00, "total": 41650.00 },
+        { "line": 2, "description": "USB-C Dual 4K Enterprise Docks", "sku": "HW-ACC-DOCK4K", "qty": 17, "unitPrice": 50.00, "total": 850.00 }
+      ]
+    },
+    {
+      "id": "PR-2026-004",
+      "title": "Annual External Penetration Testing & Threat Assessment",
+      "requester": "Vikram Patel",
+      "department": "Cybersecurity & Governance",
+      "type": "Service",
+      "channel": "Non-Catalog",
+      "entityId": "ENT-US",
+      "budgetCode": "OPEX-SEC-2026-09",
+      "allocatedBudget": 75000.00,
+      "totalAmount": 55000.00,
+      "currency": "USD",
+      "status": "PendingApproval",
+      "convertedPoId": null,
+      "createdAt": "2026-11-01T08:45:00Z",
+      "approvalFlow": [
+        { "role": "CISO", "approver": "Gregory Stone", "status": "Approved", "date": "2026-11-01T09:30:00Z" },
+        { "role": "Finance Controller", "approver": "Karen Wu", "status": "Pending", "date": null }
+      ],
+      "items": [
+        { "line": 1, "description": "Comprehensive External Red-Team & Penetration Assessment", "qty": 1, "unitPrice": 55000.00, "total": 55000.00 }
+      ]
+    },
+    {
+      "id": "PR-2026-005",
+      "title": "Warehouse Protective Gear & Safety Replacements",
+      "requester": "Mark Taylor",
+      "department": "Logistics & Warehousing",
+      "type": "Goods",
+      "channel": "Catalog",
+      "entityId": "ENT-US",
+      "budgetCode": "OPEX-LOG-2026-03",
+      "allocatedBudget": 20000.00,
+      "totalAmount": 15800.00,
+      "currency": "USD",
+      "status": "ConvertedToPO",
+      "convertedPoId": "PO-3004",
+      "createdAt": "2026-10-22T16:00:00Z",
+      "approvalFlow": [
+        { "role": "Warehouse Operations Director", "approver": "Mark Taylor", "status": "Approved", "date": "2026-10-22T16:05:00Z" },
+        { "role": "Procurement Buyer", "approver": "Sarah Jenkins", "status": "Approved", "date": "2026-10-22T16:30:00Z" }
+      ],
+      "items": [
+        { "line": 1, "description": "Industrial Cleanroom Safety Pack (Case of 50)", "sku": "PPE-CLEANROOM-PRO50", "qty": 40, "unitPrice": 340.00, "total": 13600.00 },
+        { "line": 2, "description": "Anti-Static High-Grip Safety Boots (Assorted Sizes)", "sku": "PPE-BOOTS-ASST", "qty": 22, "unitPrice": 100.00, "total": 2200.00 }
+      ]
+    }
+  ],
+  "sourcingEvents": [
+    {
+      "id": "RFX-401",
+      "title": "Global Logistics & Freight Services RFP 2027",
+      "type": "RFP",
+      "category": "Logistics & Supply Chain",
+      "status": "Evaluation",
+      "budget": 450000.00,
+      "baselineSpend": 520000.00,
+      "currency": "USD",
+      "sealedBid": true,
+      "bidsRevealed": true,
+      "deadline": "2026-11-15T18:00:00Z",
+      "description": "Consolidated inter-facility freight transportation, air-cargo charters, and customs clearance.",
+      "invitedSuppliers": ["SUP-104", "SUP-101"],
+      "bids": [
+        {
+          "supplierId": "SUP-104",
+          "supplierName": "Quantum Logistics & Freight",
+          "totalBid": 435000.00,
+          "technicalScore": 92.5,
+          "commercialScore": 88.0,
+          "combinedScore": 90.7,
+          "rank": 1,
+          "proposalNotes": "Includes dedicated fleet routing and automated customs APIs."
+        },
+        {
+          "supplierId": "SUP-101",
+          "supplierName": "Global Industrial Supply Ltd (Logistics Arm)",
+          "totalBid": 460000.00,
+          "technicalScore": 84.0,
+          "commercialScore": 82.0,
+          "combinedScore": 83.2,
+          "rank": 2,
+          "proposalNotes": "Subcontracted carrier network with standard 48hr delivery SLA."
+        }
+      ]
+    },
+    {
+      "id": "RFX-402",
+      "title": "Enterprise Microservices Monitoring & Observability Stack",
+      "type": "RFQ",
+      "category": "Software & SaaS",
+      "status": "Negotiation",
+      "budget": 120000.00,
+      "baselineSpend": 140000.00,
+      "currency": "USD",
+      "sealedBid": false,
+      "bidsRevealed": true,
+      "deadline": "2026-11-20T17:00:00Z",
+      "description": "Unified APM, distributed tracing, and log analytics for multi-cloud deployments.",
+      "invitedSuppliers": ["SUP-102"],
+      "bids": [
+        {
+          "supplierId": "SUP-102",
+          "supplierName": "Apex Cloud & IT Solutions Inc",
+          "totalBid": 108000.00,
+          "technicalScore": 96.0,
+          "commercialScore": 95.0,
+          "combinedScore": 95.6,
+          "rank": 1,
+          "proposalNotes": "Full telemetry coverage with custom retention tiers and SOC-2 Type II."
+        }
+      ]
+    }
+  ],
+  "auctions": [
+    {
+      "id": "AUC-501",
+      "title": "Bulk High-Density Data Center Server Racks",
+      "type": "Reverse Auction",
+      "status": "Live",
+      "openingPrice": 195000.00,
+      "reservePrice": 175000.00,
+      "currentLowBid": 168000.00,
+      "currency": "USD",
+      "minDecrement": 1000.00,
+      "startedAt": "2026-11-02T20:00:00Z",
+      "endsAt": "2026-11-02T22:30:00Z",
+      "antiSnipingWindowSec": 120,
+      "bidders": ["SUP-101", "SUP-102", "SUP-103"],
+      "bids": [
+        { "bidderId": "SUP-101", "bidderName": "Global Industrial Supply Ltd", "amount": 192000.00, "timestamp": "2026-11-02T20:10:15Z", "rank": 3 },
+        { "bidderId": "SUP-103", "bidderName": "Nova Precision Engineering", "amount": 184000.00, "timestamp": "2026-11-02T20:25:40Z", "rank": 2 },
+        { "bidderId": "SUP-102", "bidderName": "Apex Cloud & IT Solutions Inc", "amount": 174000.00, "timestamp": "2026-11-02T20:42:10Z", "rank": 2 },
+        { "bidderId": "SUP-101", "bidderName": "Global Industrial Supply Ltd", "amount": 168000.00, "timestamp": "2026-11-02T20:51:22Z", "rank": 1 }
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "id": "CTR-601",
+      "title": "Master Cloud Computing & Infrastructure Agreement",
+      "type": "Master Services Agreement (MSA)",
+      "supplierId": "SUP-102",
+      "supplierName": "Apex Cloud & IT Solutions Inc",
+      "totalValue": 1250000.00,
+      "currency": "USD",
+      "effectiveDate": "2025-01-01",
+      "expirationDate": "2027-12-31",
+      "noticePeriodDays": 60,
+      "autoRenew": false,
+      "status": "Active",
+      "eSignatureStatus": "Executed",
+      "deviations": [],
+      "obligations": [
+        { "id": "OBL-01", "title": "99.95% Monthly Uptime SLA Reporting", "frequency": "Monthly", "owner": "Apex Cloud Operations", "status": "Compliant" },
+        { "id": "OBL-02", "title": "Annual SOC-2 Type II Audit Renewal", "frequency": "Annual", "owner": "Apex Security Team", "status": "Scheduled" },
+        { "id": "OBL-03", "title": "Disaster Recovery Testing & Simulation", "frequency": "Semi-Annual", "owner": "Sarah Jenkins", "status": "Completed" }
+      ]
+    },
+    {
+      "id": "CTR-602",
+      "title": "Enterprise Hardware & MRO Equipment Master Supply Agreement",
+      "type": "Purchase Agreement",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "totalValue": 850000.00,
+      "currency": "USD",
+      "effectiveDate": "2025-07-01",
+      "expirationDate": "2027-06-30",
+      "noticePeriodDays": 90,
+      "autoRenew": true,
+      "status": "Active",
+      "eSignatureStatus": "Executed",
+      "deviations": [],
+      "obligations": [
+        { "id": "OBL-11", "title": "48-Hour Critical Replacement Dispatch", "frequency": "On-Demand", "owner": "GIS Customer Ops", "status": "Compliant" },
+        { "id": "OBL-12", "title": "Quarterly Volume Discount Rebate Calculation", "frequency": "Quarterly", "owner": "Karen Wu", "status": "Pending" }
+      ]
+    },
+    {
+      "id": "CTR-603",
+      "title": "AI Analytics & Advanced Machine Learning Consulting SOW",
+      "type": "Statement of Work (SOW)",
+      "supplierId": "SUP-103",
+      "supplierName": "Nova Precision Engineering",
+      "totalValue": 180000.00,
+      "currency": "EUR",
+      "effectiveDate": "2026-11-15",
+      "expirationDate": "2027-05-15",
+      "noticePeriodDays": 30,
+      "autoRenew": false,
+      "status": "DraftReview",
+      "eSignatureStatus": "PendingReview",
+      "deviations": [
+        { "clause": "Indemnification & IP Ownership", "status": "Flagged", "notes": "Vendor requested limited liability cap at 0.5x contract value rather than standard 2.0x." }
+      ],
+      "obligations": []
+    }
+  ],
+  "purchaseOrders": [
+    {
+      "id": "PO-3001",
+      "requisitionId": "PR-2026-003",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "contractId": "CTR-602",
+      "orderDate": "2026-10-21T09:00:00Z",
+      "deliveryDate": "2026-10-28T00:00:00Z",
+      "status": "Completed",
+      "supplierAcknowledgement": "Accepted",
+      "totalAmount": 42500.00,
+      "currency": "USD",
+      "lines": [
+        {
+          "line": 1,
+          "sku": "HW-DELL-XPS16-PRO",
+          "description": "Enterprise Developer Workstation (Dell XPS 16)",
+          "orderedQty": 17,
+          "receivedQty": 17,
+          "invoicedQty": 17,
+          "unitPrice": 2450.00,
+          "lineTotal": 41650.00
+        },
+        {
+          "line": 2,
+          "sku": "HW-ACC-DOCK4K",
+          "description": "USB-C Dual 4K Enterprise Docks",
+          "orderedQty": 17,
+          "receivedQty": 17,
+          "invoicedQty": 17,
+          "unitPrice": 50.00,
+          "lineTotal": 850.00
+        }
+      ]
+    },
+    {
+      "id": "PO-3002",
+      "requisitionId": "PR-2026-001",
+      "supplierId": "SUP-102",
+      "supplierName": "Apex Cloud & IT Solutions Inc",
+      "contractId": "CTR-601",
+      "orderDate": "2026-10-16T10:00:00Z",
+      "deliveryDate": "2026-10-25T00:00:00Z",
+      "status": "PartiallyReceived",
+      "supplierAcknowledgement": "Accepted",
+      "totalAmount": 128000.00,
+      "currency": "USD",
+      "lines": [
+        {
+          "line": 1,
+          "sku": "CLOUD-APEX-DEDICATED",
+          "description": "Apex Secure Cloud Dedicated Instances",
+          "orderedQty": 10,
+          "receivedQty": 8,
+          "invoicedQty": 10,
+          "unitPrice": 12800.00,
+          "lineTotal": 128000.00
+        }
+      ]
+    },
+    {
+      "id": "PO-3003",
+      "requisitionId": "PR-2026-002",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "contractId": "CTR-602",
+      "orderDate": "2026-10-19T11:00:00Z",
+      "deliveryDate": "2026-11-30T00:00:00Z",
+      "status": "InFulfillment",
+      "supplierAcknowledgement": "Accepted",
+      "totalAmount": 65000.00,
+      "currency": "USD",
+      "lines": [
+        {
+          "line": 1,
+          "sku": "SRV-HVAC-PH1",
+          "description": "HVAC Overhaul Milestone Phase 1 - Inspection & Disassembly",
+          "orderedQty": 1,
+          "receivedQty": 1,
+          "invoicedQty": 1,
+          "unitPrice": 32500.00,
+          "lineTotal": 32500.00
+        },
+        {
+          "line": 2,
+          "sku": "SRV-HVAC-PH2",
+          "description": "HVAC Overhaul Milestone Phase 2 - Re-commissioning & Sensor Calibration",
+          "orderedQty": 1,
+          "receivedQty": 0,
+          "invoicedQty": 0,
+          "unitPrice": 32500.00,
+          "lineTotal": 32500.00
+        }
+      ]
+    },
+    {
+      "id": "PO-3004",
+      "requisitionId": "PR-2026-005",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "contractId": "CTR-602",
+      "orderDate": "2026-10-23T10:30:00Z",
+      "deliveryDate": "2026-11-08T00:00:00Z",
+      "status": "Dispatched",
+      "supplierAcknowledgement": "Accepted",
+      "totalAmount": 15800.00,
+      "currency": "USD",
+      "lines": [
+        {
+          "line": 1,
+          "sku": "PPE-CLEANROOM-PRO50",
+          "description": "Industrial Cleanroom Safety Pack (Case of 50)",
+          "orderedQty": 40,
+          "receivedQty": 0,
+          "invoicedQty": 40,
+          "unitPrice": 340.00,
+          "lineTotal": 13600.00
+        },
+        {
+          "line": 2,
+          "sku": "PPE-BOOTS-ASST",
+          "description": "Anti-Static High-Grip Safety Boots (Assorted Sizes)",
+          "orderedQty": 22,
+          "receivedQty": 0,
+          "invoicedQty": 22,
+          "unitPrice": 100.00,
+          "lineTotal": 2200.00
+        }
+      ]
+    }
+  ],
+  "receipts": [
+    {
+      "id": "GRN-701",
+      "type": "GoodsReceipt",
+      "poId": "PO-3001",
+      "supplierId": "SUP-101",
+      "receiptDate": "2026-10-26T14:00:00Z",
+      "warehouse": "Austin Main Distribution Center (Bldg 4)",
+      "receivedBy": "Warehouse Lead (Tom Bradley)",
+      "inspectionResult": "Pass",
+      "status": "Accepted",
+      "lines": [
+        { "poLine": 1, "sku": "HW-DELL-XPS16-PRO", "deliveredQty": 17, "acceptedQty": 17, "rejectedQty": 0 },
+        { "poLine": 2, "sku": "HW-ACC-DOCK4K", "deliveredQty": 17, "acceptedQty": 17, "rejectedQty": 0 }
+      ]
+    },
+    {
+      "id": "GRN-702",
+      "type": "GoodsReceipt",
+      "poId": "PO-3002",
+      "supplierId": "SUP-102",
+      "receiptDate": "2026-10-24T16:20:00Z",
+      "warehouse": "Ashburn Data Center East",
+      "receivedBy": "Systems Admin (Dave Miller)",
+      "inspectionResult": "PartialPass",
+      "status": "AcceptedWithExceptions",
+      "notes": "10 nodes delivered; 2 nodes failed boot diagnostics and were returned to vendor for replacement.",
+      "lines": [
+        { "poLine": 1, "sku": "CLOUD-APEX-DEDICATED", "deliveredQty": 10, "acceptedQty": 8, "rejectedQty": 2 }
+      ]
+    },
+    {
+      "id": "SES-703",
+      "type": "ServiceEntrySheet",
+      "poId": "PO-3003",
+      "supplierId": "SUP-101",
+      "receiptDate": "2026-10-30T11:00:00Z",
+      "location": "Dallas Cleanroom Facility A",
+      "approvedBy": "Facilities Lead (Robert Miller)",
+      "inspectionResult": "Pass",
+      "status": "Accepted",
+      "notes": "Milestone Phase 1 completed according to mechanical specifications.",
+      "lines": [
+        { "poLine": 1, "sku": "SRV-HVAC-PH1", "deliveredQty": 1, "acceptedQty": 1, "rejectedQty": 0 }
+      ]
+    }
+  ],
+  "invoices": [
+    {
+      "id": "INV-801",
+      "invoiceNumber": "GIS-INV-99021",
+      "poId": "PO-3001",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "invoiceDate": "2026-10-27",
+      "dueDate": "2026-11-26",
+      "totalAmount": 42500.00,
+      "taxAmount": 0.00,
+      "currency": "USD",
+      "status": "ApprovedForPayment",
+      "matchStatus": "MATCHED",
+      "discrepancies": [],
+      "erpPosting": { "posted": true, "voucherId": "SAP-AP-2026-8819", "postedAt": "2026-10-28T09:12:00Z" },
+      "paymentStatus": "Scheduled",
+      "lines": [
+        { "line": 1, "poLine": 1, "sku": "HW-DELL-XPS16-PRO", "qty": 17, "unitPrice": 2450.00, "lineTotal": 41650.00 },
+        { "line": 2, "poLine": 2, "sku": "HW-ACC-DOCK4K", "qty": 17, "unitPrice": 50.00, "lineTotal": 850.00 }
+      ]
+    },
+    {
+      "id": "INV-802",
+      "invoiceNumber": "APEX-INV-4412",
+      "poId": "PO-3002",
+      "supplierId": "SUP-102",
+      "supplierName": "Apex Cloud & IT Solutions Inc",
+      "invoiceDate": "2026-10-25",
+      "dueDate": "2026-11-24",
+      "totalAmount": 128000.00,
+      "taxAmount": 0.00,
+      "currency": "USD",
+      "status": "UnderExceptionReview",
+      "matchStatus": "QUANTITY_MISMATCH",
+      "discrepancies": [
+        {
+          "code": "QTY_EXCEEDS_ACCEPTED",
+          "line": 1,
+          "detail": "Invoice bills for 10 units ($128,000.00), but Goods Receipt GRN-702 accepted only 8 units ($102,400.00). 2 units were rejected."
+        }
+      ],
+      "erpPosting": { "posted": false, "voucherId": null },
+      "paymentStatus": "OnHold",
+      "lines": [
+        { "line": 1, "poLine": 1, "sku": "CLOUD-APEX-DEDICATED", "qty": 10, "unitPrice": 12800.00, "lineTotal": 128000.00 }
+      ]
+    },
+    {
+      "id": "INV-803",
+      "invoiceNumber": "GIS-INV-99314",
+      "poId": "PO-3003",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "invoiceDate": "2026-10-31",
+      "dueDate": "2026-11-30",
+      "totalAmount": 35100.00,
+      "taxAmount": 0.00,
+      "currency": "USD",
+      "status": "UnderExceptionReview",
+      "matchStatus": "PRICE_VARIANCE",
+      "discrepancies": [
+        {
+          "code": "UNIT_PRICE_VARIANCE",
+          "line": 1,
+          "detail": "Billed rate is $35,100.00 vs PO approved milestone rate of $32,500.00 (Variance: +8.0%, exceeds 2.0% tolerance limit)."
+        }
+      ],
+      "erpPosting": { "posted": false, "voucherId": null },
+      "paymentStatus": "Disputed",
+      "lines": [
+        { "line": 1, "poLine": 1, "sku": "SRV-HVAC-PH1", "qty": 1, "unitPrice": 35100.00, "lineTotal": 35100.00 }
+      ]
+    },
+    {
+      "id": "INV-804",
+      "invoiceNumber": "GIS-INV-99402",
+      "poId": "PO-3004",
+      "supplierId": "SUP-101",
+      "supplierName": "Global Industrial Supply Ltd",
+      "invoiceDate": "2026-11-01",
+      "dueDate": "2026-12-01",
+      "totalAmount": 15800.00,
+      "taxAmount": 0.00,
+      "currency": "USD",
+      "status": "AwaitingGoodsReceipt",
+      "matchStatus": "MISSING_RECEIPT",
+      "discrepancies": [
+        {
+          "code": "NO_GRN_RECORDED",
+          "line": 1,
+          "detail": "Goods have not yet been checked-in or accepted at receiving dock. PO-3004 is currently in-transit."
+        }
+      ],
+      "erpPosting": { "posted": false, "voucherId": null },
+      "paymentStatus": "AwaitingReceipt",
+      "lines": [
+        { "line": 1, "poLine": 1, "sku": "PPE-CLEANROOM-PRO50", "qty": 40, "unitPrice": 340.00, "lineTotal": 13600.00 },
+        { "line": 2, "poLine": 2, "sku": "PPE-BOOTS-ASST", "qty": 22, "unitPrice": 100.00, "lineTotal": 2200.00 }
+      ]
+    }
+  ],
+  "spendAnalytics": {
+    "totalAnnualSpend": 18450000.00,
+    "contractCoveragePct": 84.2,
+    "maverickSpendAmount": 1820000.00,
+    "realizedSavingsYTD": 1420000.00,
+    "pipelineSavingsIdentified": 2850000.00,
+    "spendByCategory": [
+      { "category": "IT Infrastructure & Cloud", "amount": 6200000.00, "share": 33.6 },
+      { "category": "MRO & Hardware", "amount": 4150000.00, "share": 22.5 },
+      { "category": "Logistics & Supply Chain", "amount": 3400000.00, "share": 18.4 },
+      { "category": "Professional Services", "amount": 2100000.00, "share": 11.4 },
+      { "category": "Facilities & Real Estate", "amount": 1600000.00, "share": 8.7 },
+      { "category": "Other & Maverick", "amount": 1000000.00, "share": 5.4 }
+    ],
+    "spendByMeasure": {
+      "requestedPR": 21800000.00,
+      "committedPO": 19400000.00,
+      "invoiced": 18450000.00,
+      "paid": 16900000.00
+    },
+    "savingsPipeline": [
+      { "stage": "1. Identified Opportunities", "value": 2850000.00, "count": 14 },
+      { "stage": "2. Validated by Finance", "value": 2100000.00, "count": 9 },
+      { "stage": "3. In RFx / Sourcing", "value": 1780000.00, "count": 6 },
+      { "stage": "4. Contracted Terms", "value": 1550000.00, "count": 5 },
+      { "stage": "5. Realized & Audited", "value": 1420000.00, "count": 4 }
+    ]
+  },
+  "auditLogs": [
+    {
+      "id": "AUD-001",
+      "timestamp": "2026-10-28T09:12:00Z",
+      "actor": "System Automation Engine",
+      "action": "AUTO_MATCH_3WAY",
+      "target": "INV-801",
+      "details": "Deterministic 3-Way Match executed against PO-3001 and GRN-701. Tolerances verified (0% variance). Automated AP Voucher created: SAP-AP-2026-8819."
+    },
+    {
+      "id": "AUD-002",
+      "timestamp": "2026-10-25T11:45:10Z",
+      "actor": "Systems Admin (Dave Miller)",
+      "action": "GRN_EXCEPTION_LOGGED",
+      "target": "GRN-702",
+      "details": "Quality inspection recorded for PO-3002: 8 units passed diagnostics, 2 units rejected and returned to Apex Cloud."
+    },
+    {
+      "id": "AUD-003",
+      "timestamp": "2026-10-21T09:00:00Z",
+      "actor": "Sarah Jenkins",
+      "action": "PO_ISSUED",
+      "target": "PO-3001",
+      "details": "Purchase Order PO-3001 dispatched to Global Industrial Supply Ltd following full executive approvals on PR-2026-003."
+    },
+    {
+      "id": "AUD-004",
+      "timestamp": "2026-10-15T14:30:00Z",
+      "actor": "Karen Wu (Finance Controller)",
+      "action": "PR_BUDGET_ENCUMBERED",
+      "target": "PR-2026-001",
+      "details": "Budget verified and encumbered: $128,000.00 against CAPEX-IT-2026-04. Requisition approved for PO release."
+    },
+    {
+      "id": "AUD-005",
+      "timestamp": "2026-11-02T20:51:22Z",
+      "actor": "Global Industrial Supply Ltd (Bidder)",
+      "action": "AUCTION_BID_SUBMITTED",
+      "target": "AUC-501",
+      "details": "Reverse Auction bid received: $168,000.00. Server-authoritative timestamp validated. Current rank: 1."
+    }
+  ]
+}
+

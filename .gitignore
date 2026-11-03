@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+procureflow.db
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment & OS
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

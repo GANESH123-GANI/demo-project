@@ -1,0 +1,25 @@
+{
+  "name": "enterprise-s2p-platform",
+  "version": "1.0.0",
+  "description": "Enterprise Source-to-Pay (S2P) & Spend Management Platform based on demo project specifications",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/test-matching.js test/test-api.js"
+  },
+  "keywords": [
+    "procurement",
+    "s2p",
+    "source-to-pay",
+    "clm",
+    "srm",
+    "spend-analytics",
+    "3-way-matching",
+    "reverse-auctions"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "Apache-2.0"
+}
+
