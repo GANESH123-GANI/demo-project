@@ -30,6 +30,12 @@ if FASTAPI_AVAILABLE:
         allow_headers=["*"],
     )
 
+    @app.get("/")
+    @app.get("/health")
+    @app.get("/api")
+    def health_check():
+        return {"status": "ok", "service": "ProcureFlow Enterprise S2P API", "version": "1.0.0"}
+
     @app.get("/api/system")
     def get_system():
         return db.data.get("system", {})

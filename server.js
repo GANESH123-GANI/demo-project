@@ -36,8 +36,45 @@ const server = http.createServer(async (req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   const pathname = parsedUrl.pathname;
 
-  // 1. API Route Handling
+  // 1. API Route Handling (with internal Vercel service binding support)
   if (pathname.startsWith('/api/')) {
+    const backendServiceUrl = process.env.BACKEND_SERVICE_URL || process.env.BACKEND_URL;
+    if (backendServiceUrl) {
+      try {
+        const targetUrl = new URL(pathname + (parsedUrl.search || ''), backendServiceUrl);
+        const headers = { ...req.headers, host: targetUrl.host };
+        delete headers['content-length'];
+
+        let bodyBuffer = null;
+        if (req.method === 'POST' || req.method === 'PUT' || req.method === 'PATCH') {
+          const buffers = [];
+          for await (const chunk of req) {
+            buffers.push(chunk);
+          }
+          bodyBuffer = Buffer.concat(buffers);
+        }
+
+        const proxyRes = await fetch(targetUrl.toString(), {
+          method: req.method,
+          headers: {
+            'Content-Type': req.headers['content-type'] || 'application/json',
+            ...(req.headers['authorization'] ? { 'Authorization': req.headers['authorization'] } : {})
+          },
+          body: bodyBuffer && bodyBuffer.length > 0 ? bodyBuffer : undefined
+        });
+
+        res.statusCode = proxyRes.status;
+        proxyRes.headers.forEach((val, key) => {
+          res.setHeader(key, val);
+        });
+        const resData = await proxyRes.arrayBuffer();
+        return res.end(Buffer.from(resData));
+      } catch (proxyErr) {
+        console.error(`[Proxy] Error forwarding to backend service (${backendServiceUrl}):`, proxyErr.message);
+        // Fall through to local handler as resilience fallback
+      }
+    }
+
     let body = {};
     if (req.method === 'POST' || req.method === 'PUT' || req.method === 'PATCH') {
       try {
